@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AmataTitlebar/AmataTitlebar.iml" filepath="$PROJECT_DIR$/AmataTitlebar/AmataTitlebar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AmayaToolBar.iml" filepath="$PROJECT_DIR$/AmayaToolBar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AmayaToolBar/AmayaToolBar-AmayaToolBar.iml" filepath="$PROJECT_DIR$/AmayaToolBar/AmayaToolBar-AmayaToolBar.iml" />
+    </modules>
+  </component>
+</project>
+
