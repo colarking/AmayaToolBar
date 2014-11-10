@@ -1,7 +1,6 @@
 package com.sankuai.meituan.toolbar.view;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -10,11 +9,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.*;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toolbar;
 
 public abstract class AmayaActivity extends ActionBarActivity {
 
     private AmayaToolBar amayaToolBar;
+    private boolean showProgressing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,6 @@ public abstract class AmayaActivity extends ActionBarActivity {
      */
     @Override
     public void setContentView(int layoutResID) {
-        super.setContentView(R.layout.amaya_base);
         setContentView(layoutResID,false);
     }
 
@@ -38,7 +36,6 @@ public abstract class AmayaActivity extends ActionBarActivity {
      */
     @Override
     public void setContentView(View view) {
-        super.setContentView(R.layout.amaya_base);
         setContentView(view,false);
     }
 
@@ -61,9 +58,14 @@ public abstract class AmayaActivity extends ActionBarActivity {
             FrameLayout.LayoutParams flp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,dimension);
             flp.gravity = Gravity.TOP;
             parent.addView(amayaToolBar,flp);
+            super.setContentView(parent);
         }else{
             LinearLayout parent = new LinearLayout(this);
+            parent.setOrientation(LinearLayout.VERTICAL);
             parent.addView(amayaToolBar);
+            LinearLayout.LayoutParams flp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+            parent.addView(childView,flp);
+            super.setContentView(parent);
         }
         initToolBar();
     }
@@ -115,5 +117,22 @@ public abstract class AmayaActivity extends ActionBarActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void setActionBarBackground(Drawable drawable) {
         amayaToolBar.setBackground(drawable);
+    }
+
+    /**
+     * 在右上角显示缓冲提示框
+     * @param show      true:显示；false:隐藏
+     */
+    public void showLoading(boolean show){
+        amayaToolBar.showLoading(show);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean supportAPI(int needApi){
+        return Build.VERSION.SDK_INT >= needApi;
     }
 }

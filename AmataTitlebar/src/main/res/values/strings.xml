@@ -3,5 +3,6 @@
 
     <string name="app_name">AmataTitlebar</string>
     <string name="hello_world">Hello world!</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

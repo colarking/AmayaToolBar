@@ -12,6 +12,7 @@
         android:background="#ddcc88"
         android:layout_centerInParent="true"
         android:textSize="18sp"
+        android:id="@+id/amaya_btn"
         android:layout_height="wrap_content" />
 
 </RelativeLayout>
