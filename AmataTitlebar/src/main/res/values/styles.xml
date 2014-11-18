@@ -6,5 +6,12 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
-
+    <style name="AmayaPopupAnimation" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_right</item>
+    </style>
+    <style name="AmayaPopupAnimation2" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/zoom_enter_in</item>
+        <item name="android:windowExitAnimation">@anim/zoom_exit</item>
+    </style>
 </resources>

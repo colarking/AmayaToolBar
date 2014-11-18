@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="AmayaToolBar">
+        <attr name="itemSelector" format="reference"/>
+    </declare-styleable>
+
+
+</resources>

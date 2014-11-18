@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="transparent">#00000000</drawable>
+    <drawable name="title_item_focus">#ffe02f0c</drawable>
+    <drawable name="title_item_focus_2">#ffe02f0c</drawable>
+    <drawable name="actionbar_bg_defautle">#ffe0847b</drawable>
+    <drawable name="actionbar_bg_pop_defaut">#777473</drawable>
+    <drawable name="actionbar_bg_pop_change">#ff548c8e</drawable>
+    <drawable name="actionbar_focus">#ff25fb45</drawable>
+</resources>

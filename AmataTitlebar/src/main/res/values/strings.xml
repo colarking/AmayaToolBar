@@ -4,5 +4,19 @@
     <string name="app_name">AmataTitlebar</string>
     <string name="hello_world">Hello world!</string>
     <string name="refresh">Refresh</string>
+    <string name="amaya_loading_empty">暂无数据</string>
+    <string name="amaya_loading">加载更多...</string>
+    <string name="amaya_btn_title_bg">更改背景颜色</string>
+    <string name="amaya_btn_title_back">返回小图标(显示/隐藏)</string>
+    <string name="amaya_btn_title_name">设置标题</string>
+    <string name="amaya_btn_title_color">设置标题颜色</string>
+    <string name="amaya_btn_title_logo_change">设置Logo</string>
+    <string name="amaya_btn_title_logo_visible">Logo(显示/隐藏)</string>
+    <string name="amaya_btn_title_loading">缓冲提示(显示/隐藏)</string>
+    <string name="amaya_btn_title_add_item">增加MenuItem</string>
+    <string name="amaya_btn_title_clear_item">清除MenuItem</string>
+    <string name="amaya_btn_title_item_selector">设置点击时的Selector</string>
+    <string name="amaya_btn_title_pop_bg">设置PopupWindow背景资源</string>
+    <string name="amaya_btn_title_pop_anim">设置PopupWindow进出场动画</string>
 
 </resources>

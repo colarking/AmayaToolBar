@@ -1,18 +1,89 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:gravity="center"
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}"
         android:background="#1188dd"
         >
+    <LinearLayout
+            android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
+            android:paddingTop="50dp"
+            android:paddingBottom="50dp"
+            >
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:background="#ddcc88"
-        android:layout_centerInParent="true"
-        android:textSize="18sp"
-        android:id="@+id/amaya_btn"
-        android:layout_height="wrap_content" />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_bg"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_bg"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_back"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_back"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_name"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_name"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_color"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_color"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_logo_change"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_logo_change"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_logo_visible"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_logo_visible"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_loading"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_logo_loading"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_add_item"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_add_item"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_clear_item"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_clear_item"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_item_selector"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_item_selector"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_pop_bg"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_pop_bg"
+                />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_pop_anim"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_pop_anim"
+                />
 
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>
