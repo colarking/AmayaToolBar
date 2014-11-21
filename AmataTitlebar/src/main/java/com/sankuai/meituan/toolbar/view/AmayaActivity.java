@@ -1,5 +1,6 @@
 package com.sankuai.meituan.toolbar.view;
 
+import android.animation.Animator;
 import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -9,19 +10,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.sankuai.meituan.bean.AmayaItem;
 
-public abstract class AmayaActivity extends ActionBarActivity {
+public abstract class AmayaActivity extends ActionBarActivity implements Animation.AnimationListener, Animator.AnimatorListener {
 
     private AmayaToolBar amayaToolBar;
     private boolean showProgressing;
+    private boolean animating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_amaya);
     }
 
     /**
@@ -89,7 +92,7 @@ public abstract class AmayaActivity extends ActionBarActivity {
      * 设置Toolbar背景
      * @param res 背景资源
      */
-    public void setMTActionBarBackgroundResource(int res) {
+    public void setAmayaActionBarBackgroundResource(int res) {
         amayaToolBar.setBackgroundResource(res);
     }
 
@@ -97,7 +100,7 @@ public abstract class AmayaActivity extends ActionBarActivity {
      * 设置Toolbar背景
      * @param color 背景资源
      */
-    public void setMTActionBarBackgroundColor(int color) {
+    public void setAmayaActionBarBackgroundColor(int color) {
         amayaToolBar.setBackgroundColor(color);
     }
 
@@ -105,7 +108,7 @@ public abstract class AmayaActivity extends ActionBarActivity {
      * 设置Toolbar背景
      * @param color  like #112233
      */
-    public void setMTActionBarBackgroundColorStr(String color) {
+    public void setAmayaActionBarBackgroundColorStr(String color) {
         amayaToolBar.setBackgroundColor(Color.parseColor(color));
     }
     /**
@@ -113,7 +116,7 @@ public abstract class AmayaActivity extends ActionBarActivity {
      * @param drawable  背景资源
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public void setMTActionBarBackground(Drawable drawable) {
+    public void setAmayaActionBarBackground(Drawable drawable) {
         amayaToolBar.setBackground(drawable);
     }
 
@@ -121,7 +124,7 @@ public abstract class AmayaActivity extends ActionBarActivity {
      * 在右上角显示缓冲提示框
      * @param show      true:显示；false:隐藏
      */
-    public void showMTLoading(boolean show) {
+    public void showAmayaLoading(boolean show) {
         amayaToolBar.showLoading(show);
     }
 
@@ -129,142 +132,201 @@ public abstract class AmayaActivity extends ActionBarActivity {
         return Build.VERSION.SDK_INT >= needApi;
     }
 
-    public void addMTItem(AmayaItem item) {
+    public void addAmayaItem(AmayaItem item) {
         amayaToolBar.addItem(item, 0);
     }
 
     /**
      * 增加类似标题ActionBar右侧的MenuItem
-     *
-     * @param item         Item封装对象
-     * @param replaceIndex 位置，从左往右0->1->2,传0
+     * @param item              Item封装对象
+     * @param replaceIndex      位置，从左往右0->1->2,传0
      */
-    public void addMTItem(AmayaItem item, int replaceIndex) {
+    public void addAmayaItem(AmayaItem item, int replaceIndex) {
         amayaToolBar.addItem(item, replaceIndex);
     }
 
 
     /**
      * 设置标题栏背景
-     *
      * @param drawable 资源id
      */
-    public void setMTActionbarBackground(int drawable) {
+    public void setAmayaActionbarBackground(int drawable) {
         amayaToolBar.setBackgroundResource(drawable);
     }
 
     /**
      * 设置Logo
-     *
      * @param drawable 资源ID
      */
-    public void setMTLogo(int drawable) {
+    public void setAmayaLogo(int drawable) {
         amayaToolBar.setLogo(drawable);
     }
-
     /**
      * 显示/隐藏 Logo图标
-     *
      * @param visible true:显示；falsely:隐藏
      */
-    public void setMTLogoVisible(boolean visible) {
+    public void setAmayaLogoVisible(boolean visible) {
         amayaToolBar.setLogoVisible(visible);
     }
 
 
     /**
      * 显示/隐藏 返回小图标
-     *
      * @param visible true:显示；falsely:隐藏
      */
-    public AmayaToolBar setMTBackViewVisible(boolean visible) {
+    public AmayaToolBar setAmayaBackViewVisible(boolean visible) {
         amayaToolBar.setBackViewVisible(visible);
         return amayaToolBar;
     }
 
     /**
      * 设置标题
-     *
      * @param title
      * @return
      */
-    public AmayaToolBar setMTTitle(int title) {
+    public AmayaToolBar setAmayaTitle(int title) {
         amayaToolBar.setTitle(title);
         return amayaToolBar;
     }
-
     /**
      * 设置标题
-     *
      * @param title
      * @return
      */
-    public AmayaToolBar setMTTitle(String title) {
+    public AmayaToolBar setAmayaTitle(String title) {
         amayaToolBar.setTitle(title);
         return amayaToolBar;
     }
 
     /**
      * 设置标题颜色
-     *
      * @param color
      * @return
      */
-    public AmayaToolBar setMTTitleColor(int color) {
+    public AmayaToolBar setAmayaTitleColor(int color) {
         amayaToolBar.setTitleColor(color);
         return amayaToolBar;
     }
 
     /**
      * 增加Menu回调接口
-     *
      * @param listener
      * @return
      */
-    public AmayaToolBar addMTItemClick(AmayaMenuClickListener listener) {
+    public AmayaToolBar addAmayaItemClick(AmayaMenuClickListener listener) {
         amayaToolBar.addAmayaItemClick(listener);
         return amayaToolBar;
     }
 
     /**
      * 清除MenuItem
-     *
      * @return
      */
-    public AmayaToolBar clearMTItem() {
+    public AmayaToolBar clearAmayaItem() {
         amayaToolBar.clearItem();
         return amayaToolBar;
     }
 
     /**
      * 设置MenuItem背景资源
-     *
      * @param drawable
      * @return
      */
-    public AmayaToolBar setMTItemBackdround(int drawable) {
+    public AmayaToolBar setAmayaItemBackdround(int drawable) {
         amayaToolBar.setItemSelector(drawable);
         return amayaToolBar;
     }
 
     /**
      * 设置更多MenuItem弹出菜单的背景资源
-     *
      * @param drawable
      * @return
      */
-    public AmayaToolBar setMTPopWindowBg(int drawable) {
+    public AmayaToolBar setAmayaPopWindowBg(int drawable) {
         amayaToolBar.setPopWindowBg(drawable);
         return amayaToolBar;
     }
 
     /**
      * 设置弹出菜单AnimaionStyle
-     *
      * @param animStyle
      */
-    public AmayaToolBar setMTPopupWindowAnim(int animStyle) {
+    public AmayaToolBar setAmayaPopupWindowAnim(int animStyle) {
         amayaToolBar.setPopupWindowAnim(animStyle);
         return amayaToolBar;
+    }
+
+
+    /**
+     * 设置标题显示/隐藏
+     *
+     * @param hide
+     */
+    public void hideAmayaToolBar(boolean hide) {
+        if (animating) return;
+        if (hide) {
+            amayaToolBar.hidePopupWindow();
+            if (supportAPI(12)) {
+                animating = true;
+                amayaToolBar.animate().translationYBy(amayaToolBar.getHeight() * -1).setListener(this).setDuration(300).start();
+                if (amayaToolBar.getParent() instanceof LinearLayout) {
+                    LinearLayout ll = (LinearLayout) amayaToolBar.getParent();
+                    View view = ll.getChildAt(1);
+                    view.animate().translationYBy(amayaToolBar.getHeight() * -1).setDuration(300).start();
+                }
+            } else {
+                Animation anim = AnimationUtils.loadAnimation(this, R.anim.push_up_out);
+                anim.setAnimationListener(this);
+                amayaToolBar.startAnimation(anim);
+            }
+        } else {
+            if (supportAPI(12)) {
+                animating = true;
+                amayaToolBar.animate().translationYBy(amayaToolBar.getHeight()).setListener(this).setDuration(300).start();
+                if (amayaToolBar.getParent() instanceof LinearLayout) {
+                    LinearLayout ll = (LinearLayout) amayaToolBar.getParent();
+                    View view = ll.getChildAt(1);
+                    view.animate().translationYBy(amayaToolBar.getHeight()).setDuration(300).start();
+                }
+            } else {
+                Animation anim = AnimationUtils.loadAnimation(this, R.anim.push_up_in);
+                anim.setAnimationListener(this);
+                amayaToolBar.startAnimation(anim);
+            }
+        }
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+        if (amayaToolBar.getVisibility() == View.GONE) amayaToolBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        if (amayaToolBar.getVisibility() == View.VISIBLE) amayaToolBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationStart(Animator animation) {
+    }
+
+    @Override
+    public void onAnimationEnd(Animator animation) {
+        animating = false;
+    }
+
+    @Override
+    public void onAnimationCancel(Animator animation) {
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animator animation) {
+
     }
 }

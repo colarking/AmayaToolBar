@@ -227,7 +227,6 @@ public class AmayaToolBar extends FrameLayout implements View.OnClickListener {
             if (popupWindow.isShowing()) popupWindow.dismiss();
             popupLayout.removeAllViews();
         }
-
     }
 
     @Override
@@ -250,6 +249,14 @@ public class AmayaToolBar extends FrameLayout implements View.OnClickListener {
             View childAt = itemLayout.getChildAt(0);
             popupWindow.showAsDropDown(childAt);
         }
+    }
+
+
+    /**
+     * 隐藏更多菜单
+     */
+    public void hidePopupWindow() {
+        if (popupWindow != null && popupWindow.isShowing()) popupWindow.dismiss();
     }
 
     private LinearLayout generateTitleLayout(Context context, int eachDimenHeight) {

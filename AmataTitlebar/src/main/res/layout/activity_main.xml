@@ -84,6 +84,12 @@
                 android:onClick="onClick"
                 android:id="@+id/amaya_btn_title_pop_anim"
                 />
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/amaya_btn_title_hide"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/amaya_btn_title_pop_hide"
+                />
 
     </LinearLayout>
 </ScrollView>
